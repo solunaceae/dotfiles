@@ -130,11 +130,13 @@ eval "$(pyenv init -)"
 # opam configuration
 [[ ! -r /Users/raven/.opam/opam-init/init.zsh ]] || source /Users/raven/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
-# Fuck vim
+# Vim bullshit
 export EDITOR=nvim
 export VISUAL=nvim
 alias vim="nvim"
 
 # setup for dotfiles management
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

@@ -14,15 +14,19 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- Configurations for Nvim
-  use 'neovim/nvim-lspconfig'
+	-- Mason package manager
+	use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  }
 
   -- Coq autocompletion
   use 'ms-jpq/coq_nvim'
   use 'ms-jpq/coq.artifacts'
 
   -- tree-sitter
-  use { 
+  use {
     'nvim-treesitter/nvim-treesitter',
 	run = ':TSUpdate'
   }
@@ -45,5 +49,8 @@ return require('packer').startup(function(use)
 
 	-- notifications, for things that use them
 	use 'rcarriga/nvim-notify'
+
+	-- new theme who dis?
+  use "rebelot/kanagawa.nvim"
 end)
 

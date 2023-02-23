@@ -1,5 +1,7 @@
-local lsp = require 'lspconfig'
 local coq = require 'coq'
+local mason = require 'mason'
+local masonlsp = require 'mason-lspconfig'
+local lspconfig = require 'lspconfig'
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -35,14 +37,31 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
-local lsp_flags = {
-  -- This is the default in Nvim 0.7+
-  debounce_text_changes = 150,
-}
+mason.setup()
+masonlsp.setup()
 
-lsp['ocamllsp'].setup{
-  	on_attach = on_attach,
-   	flags = lsp_flags,
-  	coq.lsp_ensure_capabilities{},
-}
+masonlsp.setup_handlers {
+	-- The first entry (without a key) will be the default handler
+	-- and will be called for each installed server that doesn't have
+	-- a dedicated handler.
+	function (server_name) -- default handler (optional)
+		lspconfig[server_name].setup {
+			on_attach = on_attach,
+			coq.lsp_ensure_capabilities{}
+		}
+	end,
 
+	['lua_ls'] = function ()
+		lspconfig.lua_ls.setup {
+			on_attach = on_attach,
+			coq.lsp_ensure_capabilities{},
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { 'vim' }
+					}
+				}
+			}
+		}
+	end
+}

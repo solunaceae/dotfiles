@@ -46,4 +46,16 @@ lua require('filetree')
 autocmd BufRead,BufNewFile *.mll set filetype=ocaml.ocamllex
 autocmd BufRead,BufNewFile *.mly set filetype=ocaml.menhir
 
+" Autoupdate for packer 
+augroup packer_user_config
+  autocmd!
+  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+augroup end
+
+" Colorscheme
+set termguicolors
+set background=dark
+colorscheme kanagawa
+hi Normal guibg=none
+
 COQnow -s 
