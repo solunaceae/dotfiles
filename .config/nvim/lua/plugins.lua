@@ -39,7 +39,7 @@ return require('packer').startup(function(use)
 	  }
   }
 
-	-- status bar
+ 	-- status bar
 	use 'tamton-aquib/staline.nvim'
 	require('staline').setup()
 
@@ -50,7 +50,11 @@ return require('packer').startup(function(use)
 	-- notifications, for things that use them
 	use 'rcarriga/nvim-notify'
 
+	vim.notify.setup({
+    background_colour = "#000000",
+	})
+
 	-- new theme who dis?
-  use "rebelot/kanagawa.nvim"
+	use 'ray-x/aurora'
 end)
 

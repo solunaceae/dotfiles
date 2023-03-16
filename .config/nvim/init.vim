@@ -10,6 +10,13 @@ set mouse=a
 
 nmap <C-1> :NvimTreeToggle<CR>
 
+" Colorscheme
+set termguicolors
+set background=dark
+let g:aurora_transparent = 1
+colorscheme aurora
+hi Normal guibg=NONE ctermbg=NONE "remove background
+
 " set a tab to be four spaces
 " instead of 40 like a fucking psychopath
 set shiftwidth=2
@@ -51,11 +58,5 @@ augroup packer_user_config
   autocmd!
   autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
-
-" Colorscheme
-set termguicolors
-set background=dark
-colorscheme kanagawa
-hi Normal guibg=none
 
 COQnow -s 
