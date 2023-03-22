@@ -80,6 +80,9 @@ return require('packer').startup(function(use)
 	-- null-ls
 	use 'jose-elias-alvarez/null-ls.nvim'
 
+	-- commenting plugin!
+	use 'tpope/vim-commentary'
+
 	if packer_bootstrap then
     require('packer').sync()
 	end
