@@ -33,7 +33,10 @@ return require('packer').startup(function(use)
   }
 
   -- Coq autocompletion
-  use 'ms-jpq/coq_nvim'
+	-- Specify version pre bugginess to avoid ElixirLS crashes.
+	--
+	-- See here: https://github.com/ms-jpq/coq_nvim/issues/531
+  use {'ms-jpq/coq_nvim', commit = '5eddd31bf8a98d1b893b0101047d0bb31ed20c49'}
   use 'ms-jpq/coq.artifacts'
 
   -- tree-sitter
@@ -67,6 +70,15 @@ return require('packer').startup(function(use)
 
 	-- new theme who dis?
 	use 'ray-x/aurora'
+
+	-- prereq for others
+	use "nvim-lua/plenary.nvim"
+
+	-- debugger protocol
+	use 'mfussenegger/nvim-dap'
+
+	-- null-ls
+	use 'jose-elias-alvarez/null-ls.nvim'
 
 	if packer_bootstrap then
     require('packer').sync()

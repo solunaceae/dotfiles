@@ -104,6 +104,16 @@ _G.packer_plugins = {
     path = "/Users/raven/.local/share/nvim/site/pack/packer/start/mkdir.nvim",
     url = "https://github.com/jghauser/mkdir.nvim"
   },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/Users/raven/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/Users/raven/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/raven/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -133,6 +143,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/raven/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/Users/raven/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["staline.nvim"] = {
     loaded = true,
