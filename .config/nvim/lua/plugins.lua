@@ -20,8 +20,6 @@ vim.cmd([[
     augroup end
 ]])
 
-vim.notify = require("notify")
-
 return require('packer').startup(function(use)
 
   -- Packer can manage itself
@@ -62,7 +60,7 @@ return require('packer').startup(function(use)
 
 	-- notifications, for things that use them
 	use 'rcarriga/nvim-notify'
-
+	vim.notify = require('notify')
 	vim.notify.setup({
     background_colour = "#000000",
 	})

@@ -1,6 +1,9 @@
 " sets line numbers
 set number
 
+" Sets termguicolors. Simple.
+set termguicolors
+
 " more sane split behavior
 set splitright
 set splitbelow
@@ -8,10 +11,13 @@ set splitbelow
 " mouse controls!
 set mouse=a
 
+" package manager!
+lua require('plugins')
+
+" Control-1 should bring up the Nvim Tree.
 nmap <C-1> :NvimTreeToggle<CR>
 
 " Colorscheme
-set termguicolors
 set background=dark
 let g:aurora_transparent = 1
 colorscheme aurora
@@ -36,9 +42,6 @@ nnoremap <C-H> <C-W><C-H>
 
 " allow for copying to the clipboard, you naughty goose.
 set clipboard=unnamed
-
-" package manager!
-lua require('plugins')
 
 " LSP configuration
 lua require('lsp')
