@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
   'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icons
-	  }
+    }
   }
 
  	-- status bar
@@ -62,29 +62,29 @@ return require('packer').startup(function(use)
 	use 'jghauser/mkdir.nvim'
 
 	-- notifications, for things that use them
-	use 'rcarriga/nvim-notify'
-	vim.notify = require('notify')
-	vim.notify.setup({
+  use 'rcarriga/nvim-notify'
+  vim.notify = require('notify')
+  vim.notify.setup({
     background_colour = "#000000",
-	})
+  })
 
-	-- new theme who dis?
-	use 'ray-x/aurora'
+  -- new theme who dis?
+  use 'ray-x/aurora'
 
-	-- prereq for others
-	use "nvim-lua/plenary.nvim"
+  -- prereq for others
+  use "nvim-lua/plenary.nvim"
 
-	-- debugger protocol
-	use 'mfussenegger/nvim-dap'
+  -- debugger protocol
+  use 'mfussenegger/nvim-dap'
 
-	-- null-ls
-	use 'jose-elias-alvarez/null-ls.nvim'
+  -- null-ls
+  use 'jose-elias-alvarez/null-ls.nvim'
 
-	-- commenting plugin!
-	use 'tpope/vim-commentary'
+  -- commenting plugin!
+  use 'tpope/vim-commentary'
 
-	if packer_bootstrap then
+  if packer_bootstrap then
     require('packer').sync()
-	end
+  end
 end)
 

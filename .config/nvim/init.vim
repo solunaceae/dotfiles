@@ -32,7 +32,7 @@ set smartindent
 
 let g:coq_settings = { 'auto_start': 'shut-up' }
 let g:coq_settings = { "keymap.jump_to_mark": "null",
-										 \ "keymap.pre_select": v:true }
+                     \ "keymap.pre_select": v:true }
 
 " more sane split controls
 nnoremap <C-J> <C-W><C-J>
