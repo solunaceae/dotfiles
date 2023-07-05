@@ -1,9 +1,0 @@
-[submodule ".oh-my-zsh"]
-	path = .oh-my-zsh
-	url = git@github.com:ohmyzsh/ohmyzsh.git
-[submodule ".oh-my-zsh/custom/themes/powerlevel10k"]
-	path = .oh-my-zsh/custom/themes/powerlevel10k
-	url = git@github.com:romkatv/powerlevel10k.git
-[submodule ".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
-	path = .oh-my-zsh/custom/plugins/zsh-autosuggestions
-	url = git@github.com:zsh-users/zsh-autosuggestions.git
