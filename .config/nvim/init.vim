@@ -59,7 +59,7 @@ autocmd BufRead,BufNewFile *.mly set filetype=ocaml.menhir
 " Autoupdate for packer 
 augroup packer_user_config
   autocmd!
-  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  autocmd BufWritePost lua/plugins.lua source <afile> | PackerCompile
 augroup end
 
 COQnow -s 
