@@ -41,27 +41,27 @@ mason.setup()
 masonlsp.setup()
 
 masonlsp.setup_handlers {
-	-- The first entry (without a key) will be the default handler
-	-- and will be called for each installed server that doesn't have
-	-- a dedicated handler.
-	function (server_name) -- default handler (optional)
-		lspconfig[server_name].setup {
-			on_attach = on_attach,
-			coq.lsp_ensure_capabilities{}
-		}
-	end,
+  -- The first entry (without a key) will be the default handler
+  -- and will be called for each installed server that doesn't have
+  -- a dedicated handler.
+  function (server_name) -- default handler (optional)
+	lspconfig[server_name].setup {
+	  on_attach = on_attach,
+	  coq.lsp_ensure_capabilities{}
+	}
+  end,
 
-	['lua_ls'] = function ()
-		lspconfig.lua_ls.setup {
-			on_attach = on_attach,
-			coq.lsp_ensure_capabilities{},
-			settings = {
-				Lua = {
-						diagnostics = {
-						globals = { 'vim' }
-					  }
-				}
-			}
-		}
-	end
+  ['lua_ls'] = function ()
+  lspconfig.lua_ls.setup {
+    on_attach = on_attach,
+    coq.lsp_ensure_capabilities{},
+    settings = {
+	  Lua = {
+        diagnostics = {
+          globals = { 'vim' }
+        }
+      }
+    }
+  }
+  end
 }
