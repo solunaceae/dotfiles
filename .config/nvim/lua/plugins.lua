@@ -53,13 +53,13 @@ return require('packer').startup(function(use)
     }
   }
 
- 	-- status bar
-	use 'tamton-aquib/staline.nvim'
-	require('staline').setup()
+  -- status bar
+  use 'tamton-aquib/staline.nvim'
+  require('staline').setup()
 
-	-- makes empty dirs on save
-	-- listen it's just convenient
-	use 'jghauser/mkdir.nvim'
+  -- makes empty dirs on save
+  -- listen it's just convenient
+  use 'jghauser/mkdir.nvim'
 
 	-- notifications, for things that use them
   use 'rcarriga/nvim-notify'

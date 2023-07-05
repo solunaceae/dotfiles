@@ -57,9 +57,9 @@ masonlsp.setup_handlers {
 			coq.lsp_ensure_capabilities{},
 			settings = {
 				Lua = {
-					diagnostics = {
+						diagnostics = {
 						globals = { 'vim' }
-					}
+					  }
 				}
 			}
 		}
