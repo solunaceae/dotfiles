@@ -7,10 +7,16 @@ Thanks to @durdn and @atlassiandev for this; I'm copying the guide here so I don
 
 ## Requirements
 
-zsh (& by extension, oh-my-zsh)
-neovim (> 0.8.0-ish)
-thefuck (because it's fun)
-pyenv
+- zsh (& by extension, oh-my-zsh)
+- neovim (> 0.8.0-ish)
+- (optional) thefuck (because it's fun)
+- (optional) pyenv
+
+## Future Plans
+
+- [] Create some sort of branching strategy for each machine 
+    - [?] Alternatively, create separate install scripts for each OS
+- [] Make Packer bootstrapping less of a hackjob
 
 ## Packer
 
