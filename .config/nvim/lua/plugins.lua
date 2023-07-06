@@ -25,7 +25,7 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-	-- Mason package manager
+  -- Mason package manager
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
@@ -57,7 +57,7 @@ return require('packer').startup(function(use)
   -- listen it's just convenient
   use 'jghauser/mkdir.nvim'
 
-	-- notifications, for things that use them
+  -- notifications, for things that use them
   use 'rcarriga/nvim-notify'
   vim.notify = require('notify')
   vim.notify.setup({
