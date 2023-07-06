@@ -5,6 +5,12 @@ Created using the following guide: https://www.atlassian.com/git/tutorials/dotfi
 
 Thanks to @durdn and @atlassiandev for this; I'm copying the guide here so I don't lose it.
 
+## Requirements
+
+oh-my-zsh
+neovim
+packer.nvim
+
 # Dotfiles: Best Way to Store in a Bare Git Repository
 
 The technique consists in storing a Git bare repository in a "side" folder (like `$HOME/.cfg or $HOME/.myconfig`) using a specially crafted alias so that commands are run against that repository and not the usual .git local folder, which would interfere with any other Git repositories around.
