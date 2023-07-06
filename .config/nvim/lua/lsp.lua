@@ -4,7 +4,7 @@ local masonlsp = require 'mason-lspconfig'
 local lspconfig = require 'lspconfig'
 
 -- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
+-- See `:help vim.diagnostic.*` for documentation on any of the beloj functions
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
@@ -13,7 +13,7 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -51,17 +51,18 @@ masonlsp.setup_handlers {
 	}
   end,
 
+  -- gets the lua LS to shut the fuck up about `vim` being undefined
   ['lua_ls'] = function ()
-  lspconfig.lua_ls.setup {
-    on_attach = on_attach,
-    coq.lsp_ensure_capabilities{},
-    settings = {
-	  Lua = {
-        diagnostics = {
-          globals = { 'vim' }
+    lspconfig.lua_ls.setup {
+      on_attach = on_attach,
+      coq.lsp_ensure_capabilities{},
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { 'vim' }
+          }
         }
       }
     }
-  }
   end
 }
