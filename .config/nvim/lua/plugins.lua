@@ -33,21 +33,17 @@ return require('packer').startup(function(use)
   }
 
   -- Coq autocompletion
-	-- Specify version pre bugginess to avoid ElixirLS crashes.
-	--
-	-- See here: https://github.com/ms-jpq/coq_nvim/issues/531
-  use {'ms-jpq/coq_nvim', commit = '5eddd31bf8a98d1b893b0101047d0bb31ed20c49'}
+  use 'ms-jpq/coq_nvim'
   use 'ms-jpq/coq.artifacts'
 
   -- tree-sitter
   use {
-    'nvim-treesitter/nvim-treesitter',
-	run = ':TSUpdate'
+    'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'
   }
 
   -- Filetree!
   use {
-  'kyazdani42/nvim-tree.lua',
+    'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icons
     }
@@ -68,9 +64,6 @@ return require('packer').startup(function(use)
     background_colour = "#000000",
   })
 
-  -- new theme who dis?
-  use 'ray-x/aurora'
-
   -- prereq for others
   use "nvim-lua/plenary.nvim"
 
@@ -82,6 +75,9 @@ return require('packer').startup(function(use)
 
   -- commenting plugin!
   use 'tpope/vim-commentary'
+
+  -- new theme who dis?
+  use 'ray-x/aurora'
 
   if packer_bootstrap then
     require('packer').sync()
