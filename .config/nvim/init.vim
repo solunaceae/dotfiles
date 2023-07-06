@@ -26,7 +26,7 @@ hi Normal guibg=NONE ctermbg=NONE "remove background
 " set a tab to be four spaces
 " instead of 40 like a fucking psychopath
 set shiftwidth=2
-set tabstop=2
+set expandtab
 set autoindent
 set smartindent
 
@@ -47,7 +47,7 @@ set clipboard=unnamed
 lua require('lsp')
 
 " Tree-sitter config
-lua require('ts')
+lua require('treesitter')
 
 " Filetree config
 lua require('filetree')
