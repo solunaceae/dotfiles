@@ -14,9 +14,9 @@ Thanks to @durdn and @atlassiandev for this; I'm copying the guide here so I don
 
 ## Future Plans
 
-- [] Create some sort of branching strategy for each machine 
+- [ ] Create some sort of branching strategy for each machine 
     - [?] Alternatively, create separate install scripts for each OS
-- [] Make Packer bootstrapping less of a hackjob
+- [ ] Make Packer bootstrapping less of a hackjob
 
 ## Packer
 
