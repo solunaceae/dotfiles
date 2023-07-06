@@ -120,12 +120,16 @@ alias arm="exec arch -arm64 zsh"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Alias for fuck
-eval $(thefuck --alias)
+if type thefuck > /dev/null; then
+  eval $(thefuck --alias)
+fi
 
 # pyenv bullshit
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if type pyenv > /dev/null; then 
+  export PYENV_ROOT="$HOME/.pyenv"
+  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
 
 # opam configuration
 [[ ! -r /Users/raven/.opam/opam-init/init.zsh ]] || source /Users/raven/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

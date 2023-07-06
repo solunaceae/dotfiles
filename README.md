@@ -7,9 +7,18 @@ Thanks to @durdn and @atlassiandev for this; I'm copying the guide here so I don
 
 ## Requirements
 
-oh-my-zsh
-neovim
-packer.nvim
+zsh (& by extension, oh-my-zsh)
+neovim (> 0.8.0-ish)
+thefuck (because it's fun)
+pyenv
+
+## Packer
+
+Packer's a lil wonky, and I definitely expect you to forget this. 
+
+The first time you launch neovim after checking out this config, it'll break. hard. just run `PackerSync`, restart, rinse, and repeat.
+Eventually it'll start working, once it's caught up.
+I don't feel like finding a fix for that just yet, but eventually I will.
 
 # Dotfiles: Best Way to Store in a Bare Git Repository
 
