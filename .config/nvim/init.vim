@@ -43,7 +43,9 @@ nnoremap <C-H> <C-W><C-H>
 " allow for copying to the clipboard, you naughty goose.
 set clipboard=unnamed
 
+" Misc lua setups that function weirdly under Packer config
 lua require("config.lsp")
+lua require("nvim-tree").setup()
 
 " Fixes for OCaml files being weird with the LSP
 autocmd BufRead,BufNewFile *.mll set filetype=ocaml.ocamllex
