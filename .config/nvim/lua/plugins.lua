@@ -14,13 +14,13 @@ local packer_bootstrap = ensure_packer()
 vim.cmd([[
     augroup packer_user_config
       autocmd!
-      autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+      autocmd bufwritepost plugins.lua source <afile> | PackerCompile
     augroup end
 ]])
 
 return require('packer').startup(function(use)
 
-  -- Packer can manage itself
+  -- packer can manage itself
   use 'wbthomason/packer.nvim'
 
   -- new theme who dis?
@@ -32,18 +32,15 @@ return require('packer').startup(function(use)
   -- null-ls
   use 'jose-elias-alvarez/null-ls.nvim'
 
-  -- Coq autocompletion
+  -- coq autocompletion
   use 'ms-jpq/coq_nvim'
   use 'ms-jpq/coq.artifacts'
 
-  -- Mason package manager
+  -- mason package manager
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
-    config = function()
-      require("config.lsp")
-    end
   }
 
   -- tree-sitter
