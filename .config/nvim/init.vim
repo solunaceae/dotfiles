@@ -53,7 +53,7 @@ lua require('treesitter')
 lua require('filetree')
 
 " Notify configs
-lua require("notify")
+lua require("notify_config")
 
 " Fixes for OCaml files being weird with the LSP
 autocmd BufRead,BufNewFile *.mll set filetype=ocaml.ocamllex
