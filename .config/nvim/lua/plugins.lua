@@ -75,7 +75,6 @@ return require('packer').startup(function(use)
 
   -- notifications, for things that use them
   use 'rcarriga/nvim-notify'
-  vim.notify = require('notify')
   vim.notify.setup({
     background_colour = "#000000",
   })
