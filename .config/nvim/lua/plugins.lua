@@ -32,17 +32,19 @@ return require('packer').startup(function(use)
   -- null-ls
   use 'jose-elias-alvarez/null-ls.nvim'
 
+  -- Coq autocompletion
+  use 'ms-jpq/coq_nvim'
+  use 'ms-jpq/coq.artifacts'
+
   -- Mason package manager
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
-    run = ":MasonUpdate"
+    config = function()
+      require("config.lsp")
+    end
   }
-
-  -- Coq autocompletion
-  use 'ms-jpq/coq_nvim'
-  use 'ms-jpq/coq.artifacts'
 
   -- tree-sitter
   use {
@@ -52,7 +54,10 @@ return require('packer').startup(function(use)
         .update({ with_sync = true })
 
         ts_update()
-      end
+    end,
+    config = function()
+      require("config.treesitter")
+    end
   }
 
   -- Filetree!
@@ -60,25 +65,39 @@ return require('packer').startup(function(use)
     'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icons
-    }
+    },
+    config = function()
+      require("nvim-tree").setup()
+    end
   }
 
   -- status bar
-  use 'tamton-aquib/staline.nvim'
+  use {
+    'tamton-aquib/staline.nvim',
+    config = function()
+      require("staline").setup()
+    end
+  }
 
   -- makes empty dirs on save
   -- listen it's just convenient
   use 'jghauser/mkdir.nvim'
 
   -- notifications, for things that use them
-  use 'rcarriga/nvim-notify'
+  use {
+    'rcarriga/nvim-notify',
+    config = function()
+      require("notify").setup({
+        background_colour = "#000000",
+      })
+    end
+  }
 
   -- debugger protocol
   use 'mfussenegger/nvim-dap'
 
   -- commenting plugin!
   use 'tpope/vim-commentary'
-
   if packer_bootstrap then
     require('packer').sync()
   end

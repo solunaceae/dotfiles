@@ -66,3 +66,5 @@ masonlsp.setup_handlers {
     }
   end
 }
+
+vim.cmd [[COQnow -s]]

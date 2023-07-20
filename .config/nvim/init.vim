@@ -43,23 +43,9 @@ nnoremap <C-H> <C-W><C-H>
 " allow for copying to the clipboard, you naughty goose.
 set clipboard=unnamed
 
-" LSP configuration
-lua require('lsp')
-
-" Tree-sitter config
-lua require('treesitter')
-
-" Filetree config
-lua require('filetree')
-
-" Notify configs
-lua require("notify_config")
-
-" Status line configs 
-lua require("staline_config")
+lua require("config.lsp")
 
 " Fixes for OCaml files being weird with the LSP
 autocmd BufRead,BufNewFile *.mll set filetype=ocaml.ocamllex
 autocmd BufRead,BufNewFile *.mly set filetype=ocaml.menhir
 
-COQnow -s 
