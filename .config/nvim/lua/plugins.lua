@@ -25,11 +25,21 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- new theme who dis?
+  use 'ray-x/aurora'
+
+  -- prereq for others
+  use "nvim-lua/plenary.nvim"
+
+  -- null-ls
+  use 'jose-elias-alvarez/null-ls.nvim'
+
   -- Mason package manager
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
+    run = ":MasonUpdate"
   }
 
   -- Coq autocompletion
@@ -70,20 +80,11 @@ return require('packer').startup(function(use)
     background_colour = "#000000",
   })
 
-  -- prereq for others
-  use "nvim-lua/plenary.nvim"
-
   -- debugger protocol
   use 'mfussenegger/nvim-dap'
 
-  -- null-ls
-  use 'jose-elias-alvarez/null-ls.nvim'
-
   -- commenting plugin!
   use 'tpope/vim-commentary'
-
-  -- new theme who dis?
-  use 'ray-x/aurora'
 
   if packer_bootstrap then
     require('packer').sync()
