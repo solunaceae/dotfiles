@@ -67,7 +67,6 @@ return require('packer').startup(function(use)
 
   -- status bar
   use 'tamton-aquib/staline.nvim'
-  require('staline').setup()
 
   -- makes empty dirs on save
   -- listen it's just convenient

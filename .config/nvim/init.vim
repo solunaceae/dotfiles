@@ -55,14 +55,11 @@ lua require('filetree')
 " Notify configs
 lua require("notify_config")
 
+" Status line configs 
+lua require("staline_config")
+
 " Fixes for OCaml files being weird with the LSP
 autocmd BufRead,BufNewFile *.mll set filetype=ocaml.ocamllex
 autocmd BufRead,BufNewFile *.mly set filetype=ocaml.menhir
-
-" Autoupdate for packer 
-augroup packer_user_config
-  autocmd!
-  autocmd BufWritePost lua/plugins.lua source <afile> | PackerCompile
-augroup end
 
 COQnow -s 
