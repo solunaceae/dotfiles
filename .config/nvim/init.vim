@@ -11,6 +11,10 @@ set splitbelow
 " mouse controls!
 set mouse=a
 
+" maps <leader> to space"
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
 " package manager!
 lua require('plugins')
 
@@ -39,6 +43,12 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Keybindings for telescope.nvim
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " allow for copying to the clipboard, you naughty goose.
 set clipboard=unnamed

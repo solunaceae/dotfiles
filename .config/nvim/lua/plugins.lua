@@ -92,6 +92,23 @@ return require('packer').startup(function(use)
 
   -- commenting plugin!
   use 'tpope/vim-commentary'
+
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.2',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  use {
+    'nvim-telescope/telescope-fzy-native.nvim',
+    requires = { {'nvim-telescope/telescope.nvim'} },
+    config = function()
+      local telescope = require("telescope")
+
+      telescope.setup()
+      telescope.load_extension("fzy_native")
+    end
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end
