@@ -34,9 +34,9 @@ set expandtab
 set autoindent
 set smartindent
 
-let g:coq_settings = { 'auto_start': 'shut-up' }
-let g:coq_settings = { "keymap.jump_to_mark": "null",
-                     \ "keymap.pre_select": v:true }
+let g:coq_settings = { 'auto_start': 'shut-up' ,
+                     \ "keymap.jump_to_mark": "null",
+                     \ "keymap.pre_select": v:false}
 
 " more sane split controls
 nnoremap <C-J> <C-W><C-J>
