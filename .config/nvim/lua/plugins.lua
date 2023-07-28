@@ -1,116 +1,50 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
-end
-
-local packer_bootstrap = ensure_packer()
-
-vim.cmd([[
-    augroup packer_user_config
-      autocmd!
-      autocmd bufwritepost plugins.lua source <afile> | PackerCompile
-    augroup end
-]])
-
-return require('packer').startup(function(use)
-
-  -- packer can manage itself
-  use 'wbthomason/packer.nvim'
-
-  -- new theme who dis?
-  use 'ray-x/aurora'
-
-  -- prereq for others
-  use "nvim-lua/plenary.nvim"
-
-  -- null-ls
-  use 'jose-elias-alvarez/null-ls.nvim'
-
-  -- coq autocompletion
-  use 'ms-jpq/coq_nvim'
-  use 'ms-jpq/coq.artifacts'
-
-  -- mason package manager
-  use {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig"
-  }
-
-  -- tree-sitter
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function()
-      local ts_update = require('nvim-treesitter.install')
-        .update({ with_sync = true })
-
-        ts_update()
-    end,
-    config = function()
-      require("config.treesitter")
-    end
-  }
-
-  -- Filetree!
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    }
-  }
-
-  -- status bar
-  use {
+return {
+  -- status line
+  {
     'tamton-aquib/staline.nvim',
     config = function()
       require("staline").setup()
     end
-  }
+  },
 
-  -- makes empty dirs on save
-  -- listen it's just convenient
-  use 'jghauser/mkdir.nvim'
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim"
+    },
+  },
 
-  -- notifications, for things that use them
-  use {
-    'rcarriga/nvim-notify',
+  -- makes dirs on save
+  "jghauser/mkdir.nvim",
+
+  -- notifications
+  {
+    "rcarriga/nvim-notify",
     config = function()
       require("notify").setup({
         background_colour = "#000000",
       })
     end
-  }
+  },
 
+  -- commenting
+  "tpope/vim-commentary",
+
+  -- telescope/fuzzy finding
   -- debugger protocol
-  use 'mfussenegger/nvim-dap'
+  'mfussenegger/nvim-dap',
 
-  -- commenting plugin!
-  use 'tpope/vim-commentary'
-
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.2',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-
-  use {
-    'nvim-telescope/telescope-fzy-native.nvim',
-    requires = { {'nvim-telescope/telescope.nvim'} },
+  {
+    'jay-babu/mason-null-ls.nvim',
+    dependencies = {
+      "williamboman/mason.nvim",
+      "jose-elias-alvarez/null-ls.nvim",
+    },
     config = function()
-      local telescope = require("telescope")
-
-      telescope.setup()
-      telescope.load_extension("fzy_native")
+      require("mason-null-ls").setup({
+          handlers = {},
+      })
     end
-  }
-
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
-
+  },
+ 
+}
