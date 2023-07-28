@@ -1,4 +1,4 @@
-return { 
+return {
   'ray-x/aurora',
   lazy = false,
   priority = 1000,
@@ -7,4 +7,3 @@ return {
     vim.cmd([[colorscheme aurora]])
   end
 }
-
