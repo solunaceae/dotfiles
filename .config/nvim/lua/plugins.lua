@@ -4,7 +4,7 @@ return {
     'tamton-aquib/staline.nvim',
     config = function()
       require("staline").setup()
-    end
+    end,
   },
 
   -- makes dirs on save
@@ -17,7 +17,7 @@ return {
       require("notify").setup({
         background_colour = "#000000",
       })
-    end
+    end,
   },
 
   -- commenting
@@ -26,4 +26,23 @@ return {
   -- telescope/fuzzy finding
   -- debugger protocol
   'mfussenegger/nvim-dap',
+
+  -- better nvim UIs
+  'stevearc/dressing.nvim',
+
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = true,
+  },
+
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    config = true,
+  },
 }

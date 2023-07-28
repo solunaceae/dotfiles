@@ -8,20 +8,20 @@ return {
       vim.g.coq_settings = { 
         ["auto_start"] = "shut-up",
         ["keymap.jump_to_mark"] = "null",
-        ["keymap.pre_select"] = false 
+        ["keymap.pre_select"] = false ,
       }
 
       require("coq")
 
       vim.cmd([[COQnow -s]])
-    end
+    end,
   },
 
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
     keys = {
-      { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" }
+      { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" },
     },
     build = ":MasonUpdate",
   },
@@ -43,7 +43,7 @@ return {
       require("mason-null-ls").setup({
         handlers = {},
       })
-    end
+    end,
   },
 
   {
@@ -125,8 +125,9 @@ return {
               }
             }
           }
-        end
+        end,
+
       }
-    end
+    end,
   },
 }

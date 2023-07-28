@@ -5,5 +5,5 @@ return {
   config = function()
     vim.g.aurora_transparent = 1
     vim.cmd([[colorscheme aurora]])
-  end
+  end,
 }

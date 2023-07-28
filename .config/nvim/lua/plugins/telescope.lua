@@ -22,9 +22,9 @@ return {
       {
         "<leader>fh",
         "<cmd>Telescope help_tags<cr>",
-        desc = "Telescope tags"
-      }
-    }
+        desc = "Open help tags"
+      },
+    },
   },
 
   {
@@ -35,6 +35,6 @@ return {
 
       telescope.setup()
       telescope.load_extension("fzy_native")
-    end
+    end,
   },
 }
