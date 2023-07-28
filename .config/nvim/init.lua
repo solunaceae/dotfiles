@@ -70,3 +70,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>cl",
+  "<cmd>Lazy<cr>",
+  { noremap = true }
+)
+
