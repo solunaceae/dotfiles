@@ -1,6 +1,6 @@
 --[[
   Standard vim options
-]]
+]]--
 
 vim.opt.number = true
 vim.opt.termguicolors = true
@@ -53,8 +53,7 @@ end
 
 --[[
   Lazy.nvim package manager bootstrapping and setup
-]]
-
+]]--
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -77,3 +76,4 @@ vim.api.nvim_set_keymap(
   "<cmd>Lazy<cr>",
   { noremap = true }
 )
+

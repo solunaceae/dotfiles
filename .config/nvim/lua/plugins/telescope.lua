@@ -1,8 +1,7 @@
 return {
   {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.2',
-    requires = { { 'nvim-lua/plenary.nvim' } },
+    'nvim-telescope/telescope.nvim', tag = '0.1.2',
+    requires = { {'nvim-lua/plenary.nvim'} },
     keys = {
       {
         "<leader>ff",
@@ -38,3 +37,4 @@ return {
     end
   },
 }
+

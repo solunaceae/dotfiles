@@ -18,10 +18,10 @@ return {
   },
 
   {
-    "williamboman/mason.nvim",
+    "williamboman/mason.nvim" ,
     cmd = "Mason",
-    keys = {
-      { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" }
+    keys = { 
+      { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } 
     },
     build = ":MasonUpdate",
   },
@@ -41,7 +41,7 @@ return {
     },
     config = function()
       require("mason-null-ls").setup({
-        handlers = {},
+          handlers = {},
       })
     end
   },
@@ -60,7 +60,7 @@ return {
       local mason = require("mason")
       local masonlsp = require("mason-lspconfig")
       local lspconfig = require("lspconfig")
-
+      
       -- Global mappings.
       -- See `:help vim.diagnostic.*` for documentation on any of the below functions
       vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
@@ -107,16 +107,18 @@ return {
         -- The first entry (without a key) will be the default handler
         -- and will be called for each installed server that doesn't have
         -- a dedicated handler.
-        function(server_name)  -- default handler (optional)
-          lspconfig[server_name].setup {
-            coq.lsp_ensure_capabilities {}
-          }
+        function (server_name) -- default handler (optional)
+              lspconfig[server_name].setup {
+                on_attach = on_attach,
+                coq.lsp_ensure_capabilities{}
+              }
         end,
 
         -- gets the lua LS to shut the fuck up about `vim` being undefined
-        ['lua_ls'] = function()
+        ['lua_ls'] = function ()
           lspconfig.lua_ls.setup {
-            coq.lsp_ensure_capabilities {},
+            on_attach = on_attach,
+            coq.lsp_ensure_capabilities{},
             settings = {
               Lua = {
                 diagnostics = {
@@ -127,6 +129,7 @@ return {
           }
         end
       }
+
     end
   },
 }
