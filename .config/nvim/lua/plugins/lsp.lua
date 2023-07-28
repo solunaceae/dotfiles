@@ -7,7 +7,7 @@ return {
     config = function()
       vim.g.coq_settings = { 
         ["auto_start"] = "shut-up",
-        ["keymap.jump_to_mark"] = "null",
+        ["keymap.jump_to_mark"] = '',
         ["keymap.pre_select"] = false ,
       }
 
