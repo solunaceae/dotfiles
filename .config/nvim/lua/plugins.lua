@@ -7,13 +7,6 @@ return {
     end
   },
 
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim"
-    },
-  },
-
   -- makes dirs on save
   "jghauser/mkdir.nvim",
 
@@ -33,18 +26,4 @@ return {
   -- telescope/fuzzy finding
   -- debugger protocol
   'mfussenegger/nvim-dap',
-
-  {
-    'jay-babu/mason-null-ls.nvim',
-    dependencies = {
-      "williamboman/mason.nvim",
-      "jose-elias-alvarez/null-ls.nvim",
-    },
-    config = function()
-      require("mason-null-ls").setup({
-          handlers = {},
-      })
-    end
-  },
- 
 }
