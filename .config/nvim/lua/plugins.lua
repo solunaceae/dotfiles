@@ -1,12 +1,4 @@
 return {
-  -- status line
-  {
-    'tamton-aquib/staline.nvim',
-    config = function()
-      require("staline").setup()
-    end,
-  },
-
   -- makes dirs on save
   "jghauser/mkdir.nvim",
 
@@ -46,3 +38,4 @@ return {
     config = true,
   },
 }
+

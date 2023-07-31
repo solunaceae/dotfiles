@@ -77,3 +77,4 @@ vim.api.nvim_set_keymap(
   "<cmd>Lazy<cr>",
   { noremap = true }
 )
+
