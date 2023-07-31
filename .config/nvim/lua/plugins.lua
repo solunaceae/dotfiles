@@ -5,17 +5,15 @@ return {
   -- notifications
   {
     "rcarriga/nvim-notify",
-    config = function()
-      require("notify").setup({
-        background_colour = "#000000",
-      })
-    end,
+    opts = {
+      background_colour = "#000000",
+    },
+    config = true,
   },
 
   -- commenting
   "tpope/vim-commentary",
 
-  -- telescope/fuzzy finding
   -- debugger protocol
   'mfussenegger/nvim-dap',
 
