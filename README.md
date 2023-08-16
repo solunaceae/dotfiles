@@ -14,17 +14,10 @@ Thanks to @durdn and @atlassiandev for this; I'm copying the guide here so I don
 
 ## Future Plans
 
+- [X] Make Packer bootstrapping less of a hackjob
+    - Fixed by removing Packer! Switched to [lazy.nvim](https://github.com/folke/lazy.nvim)
 - [ ] Create some sort of branching strategy for each machine 
     - [?] Alternatively, create separate install scripts for each OS
-- [ ] Make Packer bootstrapping less of a hackjob
-
-## Packer
-
-Packer's a lil wonky, and I definitely expect you to forget this. 
-
-The first time you launch neovim after checking out this config, it'll break. hard. just run `PackerSync`, restart, rinse, and repeat.
-Eventually it'll start working, once it's caught up.
-I don't feel like finding a fix for that just yet, but eventually I will.
 
 # Dotfiles: Best Way to Store in a Bare Git Repository
 
