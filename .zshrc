@@ -113,8 +113,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Aliases for m1 bullshit
 alias xbrew="arch -x86_64 /usr/local/bin/brew"
-alias x86="exec arch -x86_64 zsh"
-alias arm="exec arch -arm64 zsh"
+alias x86="exec arch -x86_64 /usr/local/bin/zsh"
+alias arm="exec arch -arm64 /bin/zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -144,3 +144,6 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# JEnv configuration
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"

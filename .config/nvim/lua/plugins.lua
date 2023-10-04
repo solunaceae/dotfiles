@@ -20,12 +20,14 @@ return {
   -- better nvim UIs
   'stevearc/dressing.nvim',
 
+  -- better "problems" screen
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = true,
   },
 
+  -- Keymap reminder
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
@@ -33,6 +35,21 @@ return {
       vim.o.timeout = true
       vim.o.timeoutlen = 300
     end,
+    config = true,
+  },
+
+  -- Database integration
+  {
+    "kristijanhusak/vim-dadbod-ui",
+    dependencies = { "tpope/vim-dadbod" }
+  },
+
+  -- git blame
+  {
+    "f-person/git-blame.nvim",
+    opts = {
+      enabled = false,
+    },
     config = true,
   },
 }
