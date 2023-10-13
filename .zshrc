@@ -131,9 +131,6 @@ if type pyenv > /dev/null; then
   eval "$(pyenv init -)"
 fi
 
-# opam configuration
-[[ ! -r /Users/raven/.opam/opam-init/init.zsh ]] || source /Users/raven/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
-
 # Vim bullshit
 export EDITOR=nvim
 export VISUAL=nvim
