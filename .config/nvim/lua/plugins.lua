@@ -15,7 +15,14 @@ return {
   "tpope/vim-commentary",
 
   -- debugger protocol
-  'mfussenegger/nvim-dap',
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap", 
+      "nvim-neotest/nvim-nio",
+    },
+    config = true,
+  },
 
   -- better nvim UIs
   'stevearc/dressing.nvim',

@@ -27,26 +27,6 @@ return {
   },
 
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim"
-    },
-  },
-
-  {
-    'jay-babu/mason-null-ls.nvim',
-    dependencies = {
-      "williamboman/mason.nvim",
-      "jose-elias-alvarez/null-ls.nvim",
-    },
-    config = function()
-      require("mason-null-ls").setup({
-        handlers = {},
-      })
-    end,
-  },
-
-  {
     "williamboman/mason-lspconfig.nvim",
     dependencies = {
       { "neovim/nvim-lspconfig" },
