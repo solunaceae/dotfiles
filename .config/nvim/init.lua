@@ -1,3 +1,5 @@
+local keymap = require("keymap")
+
 --[[
   Standard vim options
 ]]
@@ -11,15 +13,7 @@ vim.opt.splitbelow = true
 vim.opt.mouse = "a"
 vim.opt.clipboard = "unnamed"
 
--- unmaps space, then remaps it to leader
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<SPACE>",
-  "<Nop>",
-  { noremap = true }
-)
-vim.g.mapleader = " "
+keymap.init()
 
 -- colorscheme stuff
 
@@ -32,24 +26,6 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-
--- sane split controls
-
-local paneKeys = {
-  "H",
-  "J",
-  "K",
-  "L"
-}
-
-for _, key in ipairs(paneKeys) do
-  vim.api.nvim_set_keymap(
-    "n",
-    "<C-" .. key .. ">",
-    "<C-W><C-" .. key .. ">",
-    { noremap = true }
-  )
-end
 
 --[[
   Lazy.nvim package manager bootstrapping and setup
@@ -70,11 +46,3 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>cl",
-  "<cmd>Lazy<cr>",
-  { noremap = true }
-)
-

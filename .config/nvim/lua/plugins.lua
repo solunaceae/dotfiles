@@ -18,7 +18,7 @@ return {
   {
     "rcarriga/nvim-dap-ui",
     dependencies = {
-      "mfussenegger/nvim-dap", 
+      "mfussenegger/nvim-dap",
       "nvim-neotest/nvim-nio",
     },
     config = true,
@@ -60,4 +60,3 @@ return {
     config = true,
   },
 }
-

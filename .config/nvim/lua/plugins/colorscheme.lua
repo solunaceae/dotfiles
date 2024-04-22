@@ -37,4 +37,3 @@ local aurora = {
 }
 
 return aurora
-

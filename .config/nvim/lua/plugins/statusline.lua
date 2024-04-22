@@ -2,7 +2,6 @@ return {
   'nvim-lualine/lualine.nvim',
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
-
     -- Bubbles config for lualine
     -- Author: lokesh-krishna
     -- MIT license, see LICENSE for more details.
@@ -65,7 +64,5 @@ return {
       tabline = {},
       extensions = {},
     }
-
   end,
 }
-
