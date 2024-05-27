@@ -131,6 +131,12 @@ if type pyenv > /dev/null; then
   eval "$(pyenv init -)"
 fi
 
+# JEnv configuration
+if type java > /dev/null; then
+  export PATH="$HOME/.jenv/bin:$PATH"
+  eval "$(jenv init -)"
+fi
+
 # Vim bullshit
 export EDITOR=nvim
 export VISUAL=nvim
@@ -141,6 +147,3 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# JEnv configuration
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
