@@ -155,3 +155,8 @@ eval "$(jenv init -)"
 source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 
+# ghcup env
+[ -f "/Users/raven/.ghcup/env" ] && . "/Users/raven/.ghcup/env"
+
+# ruby environments!
+eval "$(rbenv init - zsh)"
