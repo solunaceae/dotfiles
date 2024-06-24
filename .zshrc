@@ -111,31 +111,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+##################
+# Shell Defaults #
+##################
+
 # Aliases for m1 bullshit
 alias xbrew="arch -x86_64 /usr/local/bin/brew"
 alias x86="exec arch -x86_64 /usr/local/bin/zsh"
 alias arm="exec arch -arm64 /bin/zsh"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Alias for fuck
-if type thefuck > /dev/null; then
-  eval $(thefuck --alias)
-fi
-
-# pyenv bullshit
-if type pyenv > /dev/null; then 
-  export PYENV_ROOT="$HOME/.pyenv"
-  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
-fi
-
-# JEnv configuration
-if type java > /dev/null; then
-  export PATH="$HOME/.jenv/bin:$PATH"
-  eval "$(jenv init -)"
-fi
 
 # Vim bullshit
 export EDITOR=nvim
@@ -145,18 +131,42 @@ alias vim="nvim"
 # setup for dotfiles management
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# Alias for fuck
+if type thefuck > /dev/null; then
+  eval $(thefuck --alias)
+fi
+
+# iTerm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# JEnv configuration
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+#########################
+# Language Environments #
+#########################
 
-# GCloud configuration
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
-
-# ghcup env
-[ -f "/Users/raven/.ghcup/env" ] && . "/Users/raven/.ghcup/env"
+# pyenv bullshit
+if type pyenv > /dev/null; then 
+  export PYENV_ROOT="$HOME/.pyenv"
+  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
 
 # ruby environments!
-eval "$(rbenv init - zsh)"
+if type rbenv > /dev/null; then
+  eval "$(rbenv init - zsh)"
+fi
+
+# JEnv configuration
+if type java > /dev/null; then
+  export PATH="$HOME/.jenv/bin:$PATH"
+  eval "$(jenv init -)"
+fi
+
+# GHCup env
+[ -f "/Users/raven/.ghcup/env" ] && . "/Users/raven/.ghcup/env"
+
+# GCloud configuration
+if [ -e "$(brew --prefix)/share/google-cloud-sdk" ]; then
+  source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+  source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+fi
+
