@@ -21,14 +21,14 @@ return {
   },
 
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     cmd = "Mason",
     keys = keymap.MASON,
     build = ":MasonUpdate",
   },
 
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     lazy = false,
     dependencies = {
       { "neovim/nvim-lspconfig" },
@@ -40,7 +40,8 @@ return {
       local coq = require("coq")
       local mason = require("mason")
       local masonlsp = require("mason-lspconfig")
-      local lspconfig = require("lspconfig")
+
+      local capabilities = coq.lsp_ensure_capabilities()
 
       -- Use LspAttach autocommand to only map the following keys
       -- after the language server attaches to the current buffer
@@ -63,35 +64,28 @@ return {
         end,
       })
 
+      vim.lsp.config("*", {
+        capabilities = capabilities,
+      })
+
+      vim.lsp.config('lua_ls', {
+        settings = {
+          Lua = {
+            runtime = {
+              version = 'LuaJIT',
+            },
+            diagnostics = {
+              globals = {
+                'vim',
+                'require',
+              },
+            },
+          },
+        },
+      })
+
       mason.setup()
       masonlsp.setup()
-
-      -- Magic mason auto-setup for installed LSPs
-      masonlsp.setup_handlers {
-        -- The first entry (without a key) will be the default handler
-        -- and will be called for each installed server that doesn't have
-        -- a dedicated handler.
-        function(server_name) -- default handler (optional)
-          lspconfig[server_name].setup {
-            coq.lsp_ensure_capabilities {}
-          }
-        end,
-
-        -- gets the lua LS to shut the fuck up about `vim` being undefined
-        ['lua_ls'] = function()
-          lspconfig.lua_ls.setup {
-            coq.lsp_ensure_capabilities {},
-            settings = {
-              Lua = {
-                diagnostics = {
-                  globals = { 'vim' }
-                }
-              }
-            }
-          }
-        end,
-
-      }
     end,
   },
 }

@@ -13,7 +13,9 @@ vim.opt.splitbelow = true
 vim.opt.mouse = "a"
 vim.opt.clipboard = "unnamed"
 
-keymap.init()
+if not vim.g.vscode then
+  keymap.init()
+end
 
 -- colorscheme stuff
 
@@ -45,4 +47,6 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins")
+require("lazy").setup({
+  { import = "plugins", cond = (function() return not vim.g.vscode end) },
+})

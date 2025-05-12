@@ -120,6 +120,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Aliases for m1 bullshit
 alias xbrew="arch -x86_64 /usr/local/bin/brew"
+alias xpyenv="arch -x86_64 /usr/local/bin/pyenv"
 alias x86="exec arch -x86_64 /usr/local/bin/zsh"
 alias arm="exec arch -arm64 /bin/zsh"
 
@@ -145,7 +146,11 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # pyenv bullshit
 if type pyenv > /dev/null; then 
-  export PYENV_ROOT="$HOME/.pyenv"
+  if [[ $(arch) == "i386" ]]; then
+    export PYENV_ROOT=~/.pyenv-i386
+  else 
+    export PYENV_ROOT=~/.pyenv
+  fi
   command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
 fi
@@ -170,3 +175,6 @@ if [ -e "$(brew --prefix)/share/google-cloud-sdk" ]; then
   source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 fi
 
+
+# Created by `pipx` on 2024-07-16 20:08:38
+export PATH="$PATH:/Users/amanluqman/.local/bin"
