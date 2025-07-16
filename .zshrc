@@ -178,3 +178,8 @@ fi
 
 # Created by `pipx` on 2024-07-16 20:08:38
 export PATH="$PATH:/Users/amanluqman/.local/bin"
+
+# Terraform autocompletion
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/Cellar/tfenv/3.0.0/versions/1.12.2/terraform terraform
+
