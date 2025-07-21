@@ -58,7 +58,8 @@ M.LSP_POST_BUFFER_ATTACH = {
   { "gD",         vim.lsp.buf.declaration,             opts = { desc = "LSP: Go to declaration" } },
   { "gd",         vim.lsp.buf.declaration,             opts = { desc = "LSP: Go to definition" } },
   { "gr",         vim.lsp.buf.references,              opts = { desc = "LSP: Show references" } },
-  { "<C-k>",      vim.lsp.buf.signature_help,          opts = { desc = "LSP: Open signature help" } },
+-- { "<C-k>",      vim.lsp.buf.signature_help,          opts = { desc = "LSP: Open signature help" } },
+-- TODO: figure out now keybind for this lmao
   { "<leader>f",  format,                              opts = { desc = "LSP: Format buffer" } },
   { "<leader>D",  vim.lsp.buf.type_definition,         opts = { desc = "LSP: Show type definition" } },
   { "<leader>wa", vim.lsp.buf.add_workspace_folder,    opts = { desc = "LSP: Add workspace folder" } },
