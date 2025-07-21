@@ -175,11 +175,13 @@ if [ -e "$(brew --prefix)/share/google-cloud-sdk" ]; then
   source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 fi
 
-
 # Created by `pipx` on 2024-07-16 20:08:38
 export PATH="$PATH:/Users/amanluqman/.local/bin"
 
 # Terraform autocompletion
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/Cellar/tfenv/3.0.0/versions/1.12.2/terraform terraform
+
+# Move K9s config directory to a sensible location
+export K9S_CONFIG_DIR=~/.config/k9s/
 
